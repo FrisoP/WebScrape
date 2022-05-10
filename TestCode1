@@ -1,0 +1,12 @@
+from bs4 import BeautifulSoup
+import requests
+
+url = "https://nl.wikipedia.org/wiki/Verliefdheid"
+response = request.get(url)
+
+page = BeautifulSoup(response.text, 'html.parser')
+
+films = page.find('div', class_ = 'mw-indicators')
+list_of_titles = films.findAll('div')
+for title in list_of_titles
+print(title.text)
