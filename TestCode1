@@ -1,12 +1,22 @@
-from bs4 import BeautifulSoup
-import requests
+from selenium import webdriver
+from BeautifulSoup import BeautifulSoup
+import pandas as pd
 
-url = "https://nl.wikipedia.org/wiki/Verliefdheid"
-response = request.get(url)
+driver = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver")
 
-page = BeautifulSoup(response.text, 'html.parser')
+products=[] #List to store name of the product
+prices=[] #List to store price of the product
+ratings=[] #List to store rating of the product
+driver.get("<a href="https://www.bol.com/nl/nl/p/rugkrabber-ruggenkrabber-uitschuifbaar-zilver-rvs/9300000040101303/?s2a=#productTitle")
 
-films = page.find('div', class_ = 'mw-indicators')
-list_of_titles = films.findAll('div')
-for title in list_of_titles
-print(title.text)
+content = driver.page_source
+soup = BeautifulSoup(content)
+for a in soup.findAll('a',href=True, attrs={'class':'_31qSD5'}):
+name=a.find('div', attrs={'class':'pdp-header slot slot--pdp-header js_slot-title'})
+price=a.find('div', attrs={'class':'price-block__highlight
+                
+                '})
+rating=a.find('div', attrs={'class':'hGSR34 _2beYZw'})
+products.append(name.text)
+prices.append(price.text)
+ratings.append(rating.text) 
