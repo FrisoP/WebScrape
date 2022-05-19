@@ -13,9 +13,7 @@ content = driver.page_source
 soup = BeautifulSoup(content)
 for a in soup.findAll('a',href=True, attrs={'class':'_31qSD5'}):
 name=a.find('div', attrs={'class':'pdp-header slot slot--pdp-header js_slot-title'})
-price=a.find('div', attrs={'class':'price-block__highlight
-                
-                '})
+price=a.find('div', attrs={'class':'price-block__highlight'})
 rating=a.find('div', attrs={'class':'hGSR34 _2beYZw'})
 products.append(name.text)
 prices.append(price.text)
