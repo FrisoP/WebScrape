@@ -5,16 +5,17 @@ import pandas as pd
 driver = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver")
 
 products=[] #List to store name of the product
-prices=[] #List to store price of the product
-ratings=[] #List to store rating of the product
-driver.get("<a href="https://www.bol.com/nl/nl/p/rugkrabber-ruggenkrabber-uitschuifbaar-zilver-rvs/9300000040101303/?s2a=#productTitle")
+driver.get("<a href="https://nl.wikipedia.org/wiki/Ferrari_F50")
+# prices=[] #List to store price of the product
+# ratings=[] #List to store rating of the product
+
 
 content = driver.page_source
 soup = BeautifulSoup(content)
-for a in soup.findAll('a',href=True, attrs={'class':'_31qSD5'}):
-name=a.find('div', attrs={'class':'pdp-header slot slot--pdp-header js_slot-title'})
-price=a.find('div', attrs={'class':'price-block__highlight'})
-rating=a.find('div', attrs={'class':'hGSR34 _2beYZw'})
+for a in soup.findAll('a',href=True, attrs={'class':'mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Ferrari_F50 rootpage-Ferrari_F50 skin-vector action-view skin-vector-legacy'}):
+name=a.find('div', attrs={'classfirstHeading mw-first-heading'})
+# price=a.find('div', attrs={'class':'price-block__highlight'})
+# rating=a.find('div', attrs={'class':'hGSR34 _2beYZw'})
 products.append(name.text)
-prices.append(price.text)
-ratings.append(rating.text) 
+# prices.append(price.text)
+# ratings.append(rating.text) 
